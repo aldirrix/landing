@@ -1,0 +1,16 @@
+{
+  "defaultSeverity": "error",
+  "compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"target": "es2018",
+		"lib": ["es2018", "dom"],
+		"jsx": "react",
+		"allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+	}
+}

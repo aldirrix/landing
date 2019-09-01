@@ -1,0 +1,4 @@
+# path/to/project/root/.eslintignore
+
+# Ignore built files
+dist/
