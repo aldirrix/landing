@@ -1,0 +1,83 @@
+{
+  "address": "Hamburg, Germany.",
+  "avatar": "https://s3.amazonaws.com/chewiekie/img/photo.jpg",
+  "bio": "Ignore the squirrels, you'll never catch them anyway hack, for floof tum, tickle bum, jellybean footies curly toes climb leg roll over and sun my belly, ",
+  "certificate": [
+    {
+      "date": "July 2019",
+      "description": "MongoDB for JavaScript developers",
+      "institution": "MongoDB University",
+      "name": "MongoDB for Javascript developers"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Computer Science",
+      "description": "Masters degree",
+      "endDate": "Aug 2019",
+      "institution": "Universidad Autonoma de Guadalajara",
+      "startDate": "Sept 2017"
+    },
+    {
+      "degree": "Mechatronics Engineer",
+      "description": "Bachelors degree",
+      "endDate": "May 2013",
+      "institution": "Universidad Autonoma de Guadalajara",
+      "startDate": "Dec 2016"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Hermes BorderGuru",
+      "endDate": "Present",
+      "jobDescription": "Full stack software developer",
+      "jobTitle": "Full stack software developer",
+      "startDate": "Oct 2018"
+    },
+    {
+      "company": "Boletomovil",
+      "endDate": "July 2018",
+      "jobDescription": "Full stack software developer",
+      "jobTitle": "Full stack software developer",
+      "startDate": "Sept 2015"
+    }
+  ],
+  "name": "Aldo Preciado",
+  "profession": "Full stack software developer",
+  "skills": [
+    {
+      "name": "HTML5",
+      "percentage": "75%"
+    },
+    {
+      "name": "CSS",
+      "percentage": "25%"
+    },
+    {
+      "name": "JavaScript",
+      "percentage": "55%"
+    },
+    {
+      "name": "React",
+      "percentage": "90%"
+    }
+  ],
+  "social": [
+    {
+      "name": "facebook",
+      "url": "https://facebook.com/aldirrix"
+    },
+    {
+      "name": "twitter",
+      "url": "https://twitter.com/aldirrixx"
+    },
+    {
+      "name": "github",
+      "url": "https://github.com/aldirrix"
+    },
+    {
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/aldirrix"
+    }
+  ]
+}
