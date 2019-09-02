@@ -1,6 +1,7 @@
 {
   "defaultSeverity": "error",
   "compilerOptions": {
+    "types": ["react"],
 		"outDir": "./dist/",
 		"noImplicitAny": true,
 		"target": "es2018",
