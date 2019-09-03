@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { AboutProps } from '../types/componentProps';
 import Social from './Social';
+import { AboutProps } from '../types/components';
 
 const AboutStyle = styled.div`
   text-align: center;
@@ -38,7 +38,7 @@ const AboutH2 = styled.h2`
 const AboutProfession = styled.p`
   margin: 0.2em 0 1 em 0;
   letter-spacing: 1.6px;
-  ont-weight: 300px;
+  font-weight: 300px;
   color: #c2185b;
 `;
 
