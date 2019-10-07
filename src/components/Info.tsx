@@ -8,7 +8,7 @@ const Info: React.FC = ({ children }) => (
 );
 
 Info.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
 };
 
 export default Info;

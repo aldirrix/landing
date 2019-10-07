@@ -87,7 +87,12 @@ About.propTypes = {
   profession: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
-  social: PropTypes.array.isRequired,
+  social: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default About;

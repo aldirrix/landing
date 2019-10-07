@@ -76,7 +76,12 @@ const Skills: React.FC<SkillProps> = ({ data }): JSX.Element => (
 );
 
 Skills.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      percentage: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Skills;

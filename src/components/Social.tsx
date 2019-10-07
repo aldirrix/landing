@@ -62,7 +62,7 @@ const Social: React.FC<SocialProps> = ({ data }): JSX.Element => (
     <SocialUl>
       {data.map((item, index) => (
         <SocialLi key={`Social-${index}`}>
-          <SocialAnchor href={item.url}>
+          <SocialAnchor href={item.url} target="_blank">
             <ThemeProvider theme={getColor(item.name)}>
               <SocialIcon className={`fa fa-${item.name}`} />
             </ThemeProvider>
@@ -74,7 +74,12 @@ const Social: React.FC<SocialProps> = ({ data }): JSX.Element => (
 );
 
 Social.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Social;

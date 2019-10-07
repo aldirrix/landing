@@ -8,7 +8,7 @@ const Sidebar: React.FC = ({ children }) => (
 );
 
 Sidebar.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
 };
 
 export default Sidebar;

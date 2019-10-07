@@ -37,8 +37,8 @@ const App: React.FC = (): JSX.Element => {
         />
       </Sidebar>
       <Info>
-        <Education data={data.education} />
         <Experience data={data.experience} />
+        <Education data={data.education} />
         <Certificates data={data.certificates} />
         <Skills data={data.skills} />
       </Info>
