@@ -24,7 +24,14 @@ const Certificates: React.FC<CertificatesProps> = ({ data }): JSX.Element => (
 );
 
 Certificates.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      institution: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Certificates;

@@ -26,7 +26,15 @@ const Experience: React.FC<ExperienceProps> = ({ data }): JSX.Element => (
 );
 
 Experience.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      company: PropTypes.string.isRequired,
+      endDate: PropTypes.string.isRequired,
+      jobDescription: PropTypes.string.isRequired,
+      jobTitle: PropTypes.string.isRequired,
+      startDate: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Experience;

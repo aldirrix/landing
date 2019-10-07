@@ -27,7 +27,7 @@ const Main: React.FC = ({ children }) => (
 );
 
 Main.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
 };
 
 export default Main;

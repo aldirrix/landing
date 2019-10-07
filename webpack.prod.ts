@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 import * as HtmlWebPackPlugin from 'html-webpack-plugin';
+import * as FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
@@ -28,7 +29,7 @@ const config: webpack.Configuration = {
       },
     ],
   },
-  plugins: [htmlPlugin],
+  plugins: [htmlPlugin, new FaviconsWebpackPlugin('./public/icon.png')],
 };
 
 export default config;

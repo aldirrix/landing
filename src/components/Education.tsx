@@ -12,7 +12,7 @@ const Education: React.FC<EducationProps> = ({ data }): JSX.Element => (
         <div className="Education-item" key={`Education-${index}`}>
           <H3Styled>
             <div>
-              {education.degree} {education.institution}
+              {education.degree} {education.institution}{' '}
               <span>
                 {education.startDate} - {education.endDate}
               </span>
@@ -26,7 +26,15 @@ const Education: React.FC<EducationProps> = ({ data }): JSX.Element => (
 );
 
 Education.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      degree: PropTypes.string.isRequired,
+      institution: PropTypes.string.isRequired,
+      startDate: PropTypes.string.isRequired,
+      endDate: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Education;
