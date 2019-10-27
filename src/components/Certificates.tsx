@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { CertificatesProps } from '../types/components';
 import { H2Styled, H3Styled, PStyled } from '../styles';
 
-const Certificates: React.FC<CertificatesProps> = ({ data }): JSX.Element => (
+const Certificates: React.FC<CertificatesProps> = ({ data, palette }): JSX.Element => (
   <div className="Certificates">
-    <H2Styled name="Certificates" />
+    <H2Styled name="Certificates" palette={palette} />
     <div className="Certificates-container">
       {data.map((certificate, index) => (
         <div className="Certificates-item" key={`Certificates-${index}`}>
@@ -16,7 +16,7 @@ const Certificates: React.FC<CertificatesProps> = ({ data }): JSX.Element => (
               <span>{certificate.date}</span>
             </div>
           </H3Styled>
-          <PStyled name={certificate.description}></PStyled>
+          <PStyled name={certificate.description} palette={palette}></PStyled>
         </div>
       ))}
     </div>
@@ -32,6 +32,12 @@ Certificates.propTypes = {
       name: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  palette: PropTypes.shape({
+    strong: PropTypes.string.isRequired,
+    light: PropTypes.string.isRequired,
+    deep: PropTypes.string.isRequired,
+    contrast: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Certificates;

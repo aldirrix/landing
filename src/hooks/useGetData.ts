@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { Certificate, Education, Experience, Skill, Social } from '../types/info';
+import { Certificate, Education, Experience, Skill, Social, Palette } from '../types/info';
+import { getPalette } from '../styles';
 
 const landingInfoUrl = 'https://landing-info.s3.eu-central-1.amazonaws.com/cv.json';
 
@@ -15,6 +16,7 @@ type ProfileInfo = {
   experience: Experience[];
   certificates: Certificate[];
   skills: Skill[];
+  palette: Palette;
 };
 
 const profileInfo = {
@@ -28,6 +30,7 @@ const profileInfo = {
   experience: [],
   certificates: [],
   skills: [],
+  palette: getPalette(undefined),
 };
 
 const useGetData = (): ProfileInfo => {
@@ -39,7 +42,14 @@ const useGetData = (): ProfileInfo => {
   useEffect(() => {
     fetch(landingInfoUrl, { headers })
       .then(response => response.json())
-      .then(data => setData(data));
+      .then(data => {
+        const appData = {
+          ...data,
+          palette: getPalette(data.theme),
+        };
+
+        return setData(appData);
+      });
   }, []);
 
   return myData;
