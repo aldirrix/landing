@@ -30,3 +30,10 @@ export type Social = {
   name: string;
   url: string;
 };
+
+export type Palette = {
+  strong: string;
+  light: string;
+  deep: string;
+  contrast: string;
+};

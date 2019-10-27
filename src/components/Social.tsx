@@ -25,7 +25,6 @@ const SocialLi = styled.li`
 `;
 
 const SocialAnchor = styled.a`
-  color: #212121;
   text-decoration: none;
   font-size: 1.2em;
 `;
@@ -50,11 +49,16 @@ const github = {
   color: '#333',
 };
 
+const instagram = {
+  color: '#5851DB',
+};
+
 const getColor = (name: string): SocialMediaColor | void => {
   if (name === 'facebook') return facebook;
   else if (name === 'twitter') return twitter;
   else if (name === 'linkedin') return linkedin;
   else if (name === 'github') return github;
+  else if (name === 'instagram') return instagram;
 };
 
 const Social: React.FC<SocialProps> = ({ data }): JSX.Element => (

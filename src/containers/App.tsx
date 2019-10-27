@@ -34,13 +34,14 @@ const App: React.FC = (): JSX.Element => {
           bio={data.bio}
           address={data.address}
           social={data.social}
+          palette={data.palette}
         />
       </Sidebar>
       <Info>
-        <Experience data={data.experience} />
-        <Education data={data.education} />
-        <Certificates data={data.certificates} />
-        <Skills data={data.skills} />
+        <Experience data={data.experience} palette={data.palette} />
+        <Education data={data.education} palette={data.palette} />
+        <Certificates data={data.certificates} palette={data.palette} />
+        <Skills data={data.skills} palette={data.palette} />
       </Info>
     </Main>
   );

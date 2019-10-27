@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, ThemeProvider } from 'styled-components';
 
 import { SkillProps } from '../types/components';
 
@@ -19,7 +19,7 @@ const SkillsLine = styled.div`
   height: 8px;
   position: relative;
   border-radius: 50px;
-  background: #f8bbd0;
+  background: ${(props): string => props.theme.light};
 `;
 
 const move = keyframes`
@@ -32,7 +32,7 @@ const SkillsSPan = styled.span`
   height: 100%;
   width: ${(props: { width: string }): string => props.width};
   border-radius: 8px;
-  background-color: #c2185b;
+  background-color: ${(props): string => props.theme.deep};
   overflow: hidden;
   position: relative;
   box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
@@ -60,16 +60,18 @@ const SkillsSPan = styled.span`
   }
 `;
 
-const Skills: React.FC<SkillProps> = ({ data }): JSX.Element => (
+const Skills: React.FC<SkillProps> = ({ data, palette }): JSX.Element => (
   <div className="Skills">
     <SKillsContainer className="Skills-container">
       {data.map((skill, index) => (
-        <div className="Skills-item" key={`Skills-${index}`}>
-          <SkillsH5>{skill.name}</SkillsH5>
-          <SkillsLine className="Skills-line">
-            <SkillsSPan width={skill.percentage} />
-          </SkillsLine>
-        </div>
+        <ThemeProvider theme={palette} key={`Skills-${index}`}>
+          <div className="Skills-item">
+            <SkillsH5>{skill.name}</SkillsH5>
+            <SkillsLine className="Skills-line">
+              <SkillsSPan width={skill.percentage} />
+            </SkillsLine>
+          </div>
+        </ThemeProvider>
       ))}
     </SKillsContainer>
   </div>
@@ -82,6 +84,12 @@ Skills.propTypes = {
       percentage: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  palette: PropTypes.shape({
+    strong: PropTypes.string.isRequired,
+    light: PropTypes.string.isRequired,
+    deep: PropTypes.string.isRequired,
+    contrast: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Skills;
