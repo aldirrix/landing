@@ -85,10 +85,9 @@ const AboutFigure = styled.figure`
   }
 `;
 
-const About: React.FC<AboutProps> = ({ avatar, name, profession, bio, address, social, palette }): JSX.Element => {
+const About: React.FC<AboutProps> = ({ avatar, name, profession, bio, address, social, palette, pdf }): JSX.Element => {
   function handleClick(): void {
-    const url = 'assets/cv.pdf';
-    window.open(url);
+    window.open(pdf);
   }
 
   return (
@@ -142,6 +141,7 @@ About.propTypes = {
     deep: PropTypes.string.isRequired,
     contrast: PropTypes.string.isRequired,
   }).isRequired,
+  pdf: PropTypes.string.isRequired,
 };
 
 export default About;

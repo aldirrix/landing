@@ -17,6 +17,7 @@ type ProfileInfo = {
   certificates: Certificate[];
   skills: Skill[];
   palette: Palette;
+  pdf: string;
 };
 
 const profileInfo = {
@@ -31,6 +32,7 @@ const profileInfo = {
   certificates: [],
   skills: [],
   palette: getPalette(undefined),
+  pdf: '',
 };
 
 const useGetData = (): ProfileInfo => {

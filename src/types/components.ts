@@ -8,6 +8,7 @@ export type AboutProps = {
   address: string;
   social: Social[];
   palette: Palette;
+  pdf: string;
 };
 
 export type EducationProps = {
