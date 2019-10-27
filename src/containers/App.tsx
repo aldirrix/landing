@@ -35,6 +35,7 @@ const App: React.FC = (): JSX.Element => {
           address={data.address}
           social={data.social}
           palette={data.palette}
+          pdf={data.pdf}
         />
       </Sidebar>
       <Info>

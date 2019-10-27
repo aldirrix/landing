@@ -14,13 +14,30 @@ const AboutAvatar = styled.div`
 `;
 
 const AboutImage = styled.img`
-  border-radius: 100%;
+  transition: transform 0.5s;
+  border-radius: 50%;
   width: 160px;
   height: 160px;
   border: 2px solid ${(props): string => props.theme.strong};
   margin: 0 auto;
   display: block;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+`;
+
+const DownloadPrompt = styled.div`
+  opacity: 0;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+`;
+
+const DownloadText = styled.div`
+  color: white;
+  background: black;
+  font-size: 16px;
 `;
 
 const AboutName = styled.div`
@@ -54,34 +71,57 @@ const AboutLocation = styled.p`
   font-weight: 300;
 `;
 
-const About: React.FC<AboutProps> = ({ avatar, name, profession, bio, address, social, palette }): JSX.Element => (
-  <AboutStyle>
-    <ThemeProvider theme={palette}>
-      <div className="About-container">
-        <AboutAvatar>
-          <figure>
-            <AboutImage src={avatar} alt={name} />
-          </figure>
-        </AboutAvatar>
-        <AboutName>
-          <AboutH2>{name}</AboutH2>
-        </AboutName>
-        <div className="About-profession">
-          <AboutProfession>{profession}</AboutProfession>
+const AboutFigure = styled.figure`
+  position: relative;
+  cursor: pointer;
+  &:hover img {
+    filter: grayscale(100%);
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+  }
+  &:hover div {
+    opacity: 0.8;
+    transition: opacity 0.8s ease-in-out;
+  }
+`;
+
+const About: React.FC<AboutProps> = ({ avatar, name, profession, bio, address, social, palette, pdf }): JSX.Element => {
+  function handleClick(): void {
+    window.open(pdf);
+  }
+
+  return (
+    <AboutStyle>
+      <ThemeProvider theme={palette}>
+        <div className="About-container">
+          <AboutAvatar>
+            <AboutFigure onClick={handleClick}>
+              <AboutImage src={avatar} alt={name} />
+              <DownloadPrompt>
+                <DownloadText>DOWNLOAD PDF</DownloadText>
+              </DownloadPrompt>
+            </AboutFigure>
+          </AboutAvatar>
+          <AboutName>
+            <AboutH2>{name}</AboutH2>
+          </AboutName>
+          <div className="About-profession">
+            <AboutProfession>{profession}</AboutProfession>
+          </div>
+          <div className="About-bio">
+            <AboutBio>{bio}</AboutBio>
+          </div>
+          <div className="About-location">
+            <AboutLocation>{address}</AboutLocation>
+          </div>
+          <div className="About-social">
+            <Social data={social} />
+          </div>
         </div>
-        <div className="About-bio">
-          <AboutBio>{bio}</AboutBio>
-        </div>
-        <div className="About-location">
-          <AboutLocation>{address}</AboutLocation>
-        </div>
-        <div className="About-social">
-          <Social data={social} />
-        </div>
-      </div>
-    </ThemeProvider>
-  </AboutStyle>
-);
+      </ThemeProvider>
+    </AboutStyle>
+  );
+};
 
 About.propTypes = {
   avatar: PropTypes.string.isRequired,
@@ -101,6 +141,7 @@ About.propTypes = {
     deep: PropTypes.string.isRequired,
     contrast: PropTypes.string.isRequired,
   }).isRequired,
+  pdf: PropTypes.string.isRequired,
 };
 
 export default About;
