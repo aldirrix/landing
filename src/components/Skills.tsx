@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { keyframes, ThemeProvider } from 'styled-components';
 
 import { SkillProps } from '../types/components';
+import { H2Styled } from '../styles';
 
 const SKillsContainer = styled.div`
   display: grid;
@@ -62,6 +63,7 @@ const SkillsSPan = styled.span`
 
 const Skills: React.FC<SkillProps> = ({ data, palette }): JSX.Element => (
   <div className="Skills">
+    <H2Styled name="Skills" palette={palette} />
     <SKillsContainer className="Skills-container">
       {data.map((skill, index) => (
         <ThemeProvider theme={palette} key={`Skills-${index}`}>
